@@ -1,0 +1,10 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<AssemblyName>clib</AssemblyName>
+		<PublishAot>true</PublishAot>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="ceetemsoft.utils" Version="2.0.0-local" />
+	</ItemGroup>
+</Project>

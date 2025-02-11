@@ -1,0 +1,16 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+	{
+		"name": "Debug C Library",
+		"type": "coreclr",
+		"request": "launch",
+		"preLaunchTask": "Build C Library - Debug",
+		"cwd": "${workspaceFolder}/projects/test",
+		"stopAtEntry": false,
+		"program": "${workspaceFolder}/artifacts/bin/test/debug/test.exe",
+		"args": [
+			
+		]
+	}]
+}
