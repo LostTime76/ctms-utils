@@ -23,5 +23,25 @@
 			"kind": "build",
 			"isDefault": true
 		}
+	},
+	{
+		"label": "Publish C Library",
+		"type": "process",
+		"command": "dotnet",
+		"args": [
+			"publish",
+			"-r", "win-x64"
+		],
+		"group": {
+			"kind": "build",
+		}
+	},
+	{
+		"label": "Clean",
+		"type": "process",
+		"command": "dotnet",
+		"args": [
+			"clean"
+		]
 	}]
 }
