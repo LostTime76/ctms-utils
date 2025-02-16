@@ -1,0 +1,41 @@
+{
+	"cc": {
+		"exe": "clang",
+		"rsp": { "fmt": "@{}", "fext": ".rsp" },
+		"spec": [
+			{ "frag": "str", "str": "-c" },
+			{ "frag": "opts" },
+			{ "frag": "incs", "fmt": "-I{}" },
+			{ "frag": "defs", "fmt": "-D{}" },
+			{ "frag": "stra", "str": ["-o"] },
+			{ "frag": "outf", "fext": ".o" },
+			{ "frag": "str", "str": ["-MMD", "-MF"] },
+			{ "frag": "deps", "fext": ".d" },
+			{ "frag": "src" }
+		]
+	},
+	
+	"ld": {
+		"exe": "ld.lld",
+		"rsp": { "fmt": "@{}", "fext": ".rsp" },
+		"spec": [
+			{ "frag": "opts" },
+			{ "frag": "str", "str": "--image_input=", "carg": true},
+			{ "frag": "inf", "key": "bin", "carg": true },
+			{ "frag": "str", "str": ",.sect_name,", "carg": true },
+			{ "frag": "ins", "key": "addr" },
+			{ "frag": "str", "str": "-o" },
+			{ "frag": "outf", "key": "elf" },
+			{ "frag": "libs", "fmt": "-L{}" },
+			{ "frag": "objs", "fmt": "{}" }
+		]
+	},
+	
+	"max_threads": 1,
+	"out_dir": "${out_dir}",
+	
+	"sources": [
+		{ "cmd": "set_dir", "dir": "${src_dir}" },
+		{ "cmd": "include", "recurse": true }
+	]
+}
