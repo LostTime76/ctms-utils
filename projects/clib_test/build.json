@@ -1,38 +1,41 @@
 {
-	"cc": {
+	"cc_spec": {
 		"exe": "clang",
 		"rsp": { "fmt": "@{}", "fext": ".rsp" },
-		"spec": [
-			{ "frag": "str", "str": "-c" },
-			{ "frag": "opts" },
-			{ "frag": "incs", "fmt": "-I{}" },
-			{ "frag": "defs", "fmt": "-D{}" },
-			{ "frag": "stra", "str": ["-o"] },
-			{ "frag": "outf", "fext": ".o" },
-			{ "frag": "str", "str": ["-MMD", "-MF"] },
-			{ "frag": "deps", "fext": ".d" },
-			{ "frag": "src" }
+		"frags": [
+			{ "type": "str", "val": "-c" },
+			{ "type": "opts" },
+			{ "type": "incs", "fmt": "-I{}" },
+			{ "type": "defs", "fmt": "-D{}" },
+			{ "type": "str", "val": "-o" },
+			{ "type": "outf", "fext": ".o" },
+			{ "type": "str", "val": ["-MMD", "-MF"] },
+			{ "type": "deps", "fext": ".d" },
+			{ "type": "src" }
 		]
 	},
 	
-	"ld": {
+	"ld_spec": {
 		"exe": "ld.lld",
-		"rsp": { "fmt": "@{}", "fext": ".rsp" },
-		"spec": [
-			{ "frag": "opts" },
-			{ "frag": "str", "str": "--image_input=", "carg": true},
-			{ "frag": "inf", "key": "bin", "carg": true },
-			{ "frag": "str", "str": ",.sect_name,", "carg": true },
-			{ "frag": "ins", "key": "addr" },
-			{ "frag": "str", "str": "-o" },
-			{ "frag": "outf", "key": "elf" },
-			{ "frag": "libs", "fmt": "-L{}" },
-			{ "frag": "objs", "fmt": "{}" }
+		"rsp": { "fmt": "@{}", "fname": "link.rsp" },
+		"frags": [
+			{ "type": "opts" },
+			{ "type": "str", "val": "--image_input=", "cont": true},
+			{ "type": "inf", "key": "bin", "cont": true },
+			{ "type": "str", "val": ",.sect_name,", "cont": true },
+			{ "type": "ins", "key": "addr" },
+			{ "type": "str", "val": "-o" },
+			{ "type": "outf", "key": "elf" },
+			{ "type": "libs", "fmt": "-L{}" },
+			{ "type": "objs", "fmt": "{}" }
 		]
 	},
 	
 	"max_threads": 1,
 	"out_dir": "${out_dir}",
+	"incs": [],
+	"defs": [],
+	"libs": [],
 	
 	"sources": [
 		{ "cmd": "set_dir", "dir": "${src_dir}" },

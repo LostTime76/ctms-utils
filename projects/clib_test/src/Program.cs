@@ -1,6 +1,8 @@
-﻿
+﻿using CeetemSoft.Io;
+using CeetemSoft.Native;
+using Library;
+using Library.MicroBuild.Data;
 using System.Text.RegularExpressions;
-using CeetemSoft.Io;
 
 namespace Test;
 
@@ -21,9 +23,13 @@ unsafe public static partial class Program
 
 	private static readonly Regex JsonPattern = GetJsonPattern();
 
-	public static void Main()
+	public static int Main()
 	{
-		string json = GetBuildJson();
+		string json   = GetBuildJson();
+		byte*  data   = ExternalFunctions.BuildEntry(NativeUtf8.Alloc(json));
+		var    result = BuildResultData.Deserialize(data);
+
+		return result.Success ? 0 : 1;
 	}
 
 	private static string GetBuildJson()
