@@ -10,7 +10,17 @@
 		"stopAtEntry": false,
 		"program": "${workspaceFolder}/artifacts/bin/test/debug/test.exe",
 		"args": [
-			
+
+		]
+	},
+	{
+		"name": "Run Build",
+		"type": "debugpy",
+		"request": "launch",
+		"cwd": "${workspaceFolder}/projects/test/tool",
+		"program": "${workspaceFolder}/projects/test/tool/build.py",
+		"args": [
+			"debug"
 		]
 	}]
 }
