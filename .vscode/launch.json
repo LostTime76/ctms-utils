@@ -17,10 +17,22 @@
 		"name": "Run Build",
 		"type": "debugpy",
 		"request": "launch",
-		"cwd": "${workspaceFolder}/projects/test/tool",
-		"program": "${workspaceFolder}/projects/test/tool/build.py",
-		"args": [
-			"debug"
-		]
+		"cwd": "${workspaceFolder}/projects/test/build",
+		"module": "ctms.ucbuild",
+		"env": {
+			"PYTHONPATH": "{env:PYTHONPATH};${workspaceFolder}/projects/packages"
+		},
+		"args": ["build", "debug"]
+	},
+	{
+		"name": "Run Clean",
+		"type": "debugpy",
+		"request": "launch",
+		"cwd": "${workspaceFolder}/projects/test/build",
+		"module": "ctms.ucbuild",
+		"env": {
+			"PYTHONPATH": "{env:PYTHONPATH};${workspaceFolder}/projects/packages"
+		},
+		"args": ["clean"]
 	}]
 }
