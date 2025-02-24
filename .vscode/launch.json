@@ -18,21 +18,21 @@
 		"type": "debugpy",
 		"request": "launch",
 		"cwd": "${workspaceFolder}/projects/test/build",
-		"module": "ctms.ucbuild",
+		"program": "${workspaceFolder}/projects/test/build/build.py",
 		"env": {
 			"PYTHONPATH": "{env:PYTHONPATH};${workspaceFolder}/projects/packages"
 		},
-		"args": ["build", "debug"]
+		"args": ["debug"]
 	},
 	{
 		"name": "Run Clean",
 		"type": "debugpy",
 		"request": "launch",
 		"cwd": "${workspaceFolder}/projects/test/build",
-		"module": "ctms.ucbuild",
+		"program": "${workspaceFolder}/projects/test/build/clean.py",
 		"env": {
 			"PYTHONPATH": "{env:PYTHONPATH};${workspaceFolder}/projects/packages"
 		},
-		"args": ["clean"]
+		"args": []
 	}]
 }
