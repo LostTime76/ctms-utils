@@ -1,1 +1,1 @@
-from .targets import ToolchainId
+from .target import Toolchain, BuildTarget
