@@ -43,5 +43,17 @@
 		"args": [
 			"clean"
 		]
+	},
+	{
+		"label": "Measure Run Build",
+		"type": "process",
+		"command": "pwsh",
+		"args": ["-Command", "Measure-Command { python ${workspaceFolder}/projects/test/build/build.py ultra.debug }"],
+		"options": {
+			"cwd": "${workspaceFolder}/projects/test/build",
+			"env": {
+				"PYTHONPATH": "{env:PYTHONPATH};${workspaceFolder}/projects/packages"
+			}
+		}
 	}]
 }

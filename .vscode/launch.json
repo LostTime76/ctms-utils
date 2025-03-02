@@ -22,7 +22,7 @@
 		"env": {
 			"PYTHONPATH": "{env:PYTHONPATH};${workspaceFolder}/projects/packages"
 		},
-		"args": ["debug"]
+		"args": ["ultra.debug"]
 	},
 	{
 		"name": "Run Clean",
